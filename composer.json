@@ -1,0 +1,25 @@
+{
+    "name": "jsonrai277/laravel-blog",
+    "description": "A laravel blog created from json placeholder",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sudip Rai"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "JsonRai277\\LaravelBlog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers" : [
+                "JsonRai277\\LaravelBlog\\LaravelBlogServiceProvider"
+            ]
+        }
+    }
+}
