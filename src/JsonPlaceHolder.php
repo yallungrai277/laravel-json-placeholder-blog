@@ -1,21 +1,22 @@
 <?php
 
-namespace JsonRai277\LaravelBlog;
+namespace JsonRai277\LaravelJsonPlaceholder;
 
 use Exception;
 use Illuminate\Support\Facades\Http;
-use JsonRai277\LaravelBlog\Exceptions\ResponseFailedException;
+use JsonRai277\LaravelJsonPlaceholder\Exceptions\LaravelJsonPlaceholderException;
 
 class JsonPlaceHolder
 {
-    const FALLBACK_BASE_JSON_PLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com';
-
     protected string $baseUrl = '';
 
     public function __construct()
     {
-        $baseUrl = LaravelBlogConfig::getConfig('json_placeholder_base_url');
-        $this->baseUrl = trim(empty($baseUrl) ? self::FALLBACK_BASE_JSON_PLACEHOLDER_URL : $baseUrl, " \/");
+        $baseUrl = LaravelJsonPlaceholderConfig::getConfig('json_placeholder_base_url', null);
+        if (empty($baseUrl)) {
+            throw LaravelJsonPlaceholderException::jsonPlacedHolderUrlNotSet();
+        }
+        $this->baseUrl = trim($baseUrl, " \/");
     }
 
     /**
@@ -28,7 +29,7 @@ class JsonPlaceHolder
         try {
             $response->throwIf($response->failed());
         } catch (Exception $e) {
-            throw new ResponseFailedException($e->getMessage(), $e->getCode());
+            throw LaravelJsonPlaceholderException::responseFailed($e->getMessage(), $e->getCode());
         }
 
         return $response->json();

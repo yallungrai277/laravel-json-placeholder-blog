@@ -1,5 +1,6 @@
 <?php
 
-use JsonRai277\LaravelBlog\LaravelBlogRouteService;
+use JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderRouteService;
 
-LaravelBlogRouteService::registerRoutes();
+// Register routes.
+LaravelJsonPlaceholderRouteService::registerRoutes();
