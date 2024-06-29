@@ -24,6 +24,17 @@ class ResourceIndex extends Component
     {
         $view = sprintf('laravel-json-placeholder::%s.components.page.resource-index', LaravelJsonPlaceholderResourceService::getTemplateEngine());
 
-        return view($view);
+        return view($view, [
+            'containerClass' => LaravelJsonPlaceholderResourceService::addBackgroundClassToClasses([
+                'flex',
+                'items-center',
+                'justify-center',
+                'min-h-full',
+                'h-auto',
+                'flex-col',
+                'overflow-y-scroll',
+                'py-10',
+            ])
+        ]);
     }
 }

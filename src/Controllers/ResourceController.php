@@ -4,7 +4,6 @@ namespace JsonRai277\LaravelJsonPlaceholder\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderConfig;
 use JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderResourceService;
 
 class ResourceController extends Controller
@@ -45,7 +44,7 @@ class ResourceController extends Controller
         );
 
         $paginator->getCollection()->transform(function ($item) use ($resource) {
-            $item['url'] = $this->getResourceItemUrl($resource, $item);
+            $item['url'] = $resource['uri'] . '/' . $item['id'];
             return $item;
         });
 
@@ -64,10 +63,10 @@ class ResourceController extends Controller
         $resource = $this->getResourceFromUri($request->getRequestUri());
 
         $item = app('JsonPlaceHolder')->getResource(rtrim($resource['api_path'], '/') . '/' . $id);
-        $item['url'] = $this->getResourceItemUrl($resource, $item);
 
         return view($this->getBaseViewPath() . '.resources.show.' . $resource['show-page'], [
             'item' => $item,
+            'resource' => $resource
         ]);
     }
 
@@ -89,10 +88,5 @@ class ResourceController extends Controller
     public function getBaseViewPath(): string
     {
         return 'laravel-json-placeholder::' . $this->templateEngine;
-    }
-
-    public function getResourceItemUrl(array $resource, array $item): string
-    {
-        return ($resource['uri'] ?? '') . '/' . ($item['id'] ?? '');
     }
 }

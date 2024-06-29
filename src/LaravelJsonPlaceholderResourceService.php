@@ -64,4 +64,37 @@ class LaravelJsonPlaceholderResourceService
 
         return new LengthAwarePaginator($currentPageItems, $totalNumberOfItems, $perPage, $currentPage, ['path' => $path]);
     }
+
+    /**
+     * Should display random background color.
+     */
+    public static function shouldDisplayRandomBackgroundColor()
+    {
+        return LaravelJsonPlaceholderConfig::getConfig('randomize_background_color', true);
+    }
+
+    /**
+     * Get the random background color.
+     */
+    public static function getRandomBackgroundColor(): string
+    {
+        $colors = LaravelJsonPlaceholderConfig::getConfig('background_colors', ['bg-indigo-400']);
+
+        return $colors[array_rand($colors)];
+    }
+
+    /**
+     * Add background class to classes.
+     */
+    public static function addBackgroundClassToClasses(array $classes)
+    {
+        if (static::shouldDisplayRandomBackgroundColor()) {
+            return array_merge(
+                $classes,
+                [LaravelJsonPlaceholderResourceService::getRandomBackgroundColor()],
+            );
+        }
+
+        return array_merge($classes, ['bg-indigo-400']);
+    }
 }

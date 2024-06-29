@@ -18,7 +18,7 @@ class LaravelJsonPlaceholderRouteService
         collect(LaravelJsonPlaceholderResourceService::getBindedResources())->each(function ($settings, $resource) {
             $path = trim($settings['uri'], " \/");
             Route::get($path, [ResourceController::class, 'index'])->name($resource . '.index');
-            Route::get($path . '/{id}', [ResourceController::class, 'show'])->name($resource . '.show');
+            Route::get($path . '/{id}', [ResourceController::class, 'show'])->name($resource . '.show')->where('id', '[0-9]+');
         });
     }
 }

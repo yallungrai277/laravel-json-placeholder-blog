@@ -18,16 +18,25 @@ return [
     'template_engine' => 'blade',
 
     /**
+     * Should display random background color in resource pages except for landing page.
+     */
+    'randomize_background_color' => true,
+
+    /**
      * Resources settings.
      */
     'resources' => [
         'posts' => [
+            // This maps to local uri.
             'uri' => 'posts',
+            // This maps to api path to be called on json placeholder.
             'api_path' => '/posts',
             'svg_icon' => '<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/>
                 </svg>',
+            // This is the page that will be used to render this resource page which lives under /blade/resources/index.
             'index-page' => 'posts',
+            // This is the page that will be used to render this resource page which lives under /blade/resources/show.
             'show-page' => 'post'
         ],
         'comments' => [
@@ -75,5 +84,21 @@ return [
             'index-page' => 'users',
             'show-page' => 'user'
         ],
+    ],
+
+    /**
+     * Background colors to be used on resource pages.
+     */
+    'background_colors' => [
+        'bg-amber-400',
+        'bg-indigo-400',
+        'bg-yellow-400',
+        'bg-lime-400',
+        'bg-emerald-400',
+        'bg-sky-400',
+        'bg-rose-400',
+        'bg-teal-400',
+        'bg-green-400',
+        'bg-zinc-400',
     ]
 ];
