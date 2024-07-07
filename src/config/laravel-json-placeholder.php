@@ -88,7 +88,7 @@ return [
     ],
 
     /**
-     * Background colors to be used on resource pages.
+     * Tailwind background colors to be used on resource pages when randomize_background_color = true.
      */
     'background_colors' => [
         'bg-amber-400',
