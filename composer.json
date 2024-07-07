@@ -3,15 +3,19 @@
     "description": "A json placeholder integration for laravel",
     "type": "library",
     "license": "MIT",
+    "keywords" : [
+        "Json placeholder"
+    ],
     "authors": [
         {
-            "name": "Sudip Rai"
+            "name": "Sudip Rai",
+            "role": "Developer",
+            "email": "yallungrai277@gmail.com"
         }
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.0",
-        "livewire/livewire": "^3.0"
+        "php": "^8.0"
     },
     "autoload": {
         "psr-4": {
@@ -23,13 +27,6 @@
             "providers": [
                 "JsonRai277\\LaravelJsonPlaceholder\\LaravelJsonPlaceholderServiceProvider"
             ]
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Workbench\\App\\": "workbench/app/",
-            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
-            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     }
 }
