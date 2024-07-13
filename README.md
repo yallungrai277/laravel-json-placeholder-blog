@@ -19,6 +19,24 @@ php artisan vendor:publish --provider=JsonRai277\\LaravelJsonPlaceholder\\Larave
 
 Once tag published visit the route `/resources`. It should render a nice landing page for all the available resources. Also, the config should be pretty self explanatory to override any settings.
 
+## Config
+
+Retrieving config.
+
+```php
+$config = config('laravel-json-placeholder.pagination_size'); // Returns 10 or whatever set on the config.
+// Or
+$config = JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderConfig::getConfig('pagination_size');
+```
+
+Setting config at rung time.
+
+```php
+
+JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderConfig::setConfig('pagination_size', 10); // Sets 10.
+
+```
+
 ## Testing
 
 You can run tests with:

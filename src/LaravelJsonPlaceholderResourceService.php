@@ -10,12 +10,12 @@ class LaravelJsonPlaceholderResourceService
     /**
      * Resource bind key.
      */
-    const RESOURCE_BIND_KEY = 'laravel-json-placeholder::resources';
+    public const RESOURCE_BIND_KEY = 'laravel-json-placeholder::resources';
 
     /**
      * Template engine bind key.
      */
-    const TEMPLATE_ENGINE_KEY = 'laravel-json-placeholder::template-engine';
+    public const TEMPLATE_ENGINE_KEY = 'laravel-json-placeholder::template-engine';
 
     /**
      * Get the binded resources in the container.
@@ -68,7 +68,7 @@ class LaravelJsonPlaceholderResourceService
     /**
      * Should display random background color.
      */
-    public static function shouldDisplayRandomBackgroundColor()
+    public static function shouldDisplayRandomBackgroundColor(): bool
     {
         return LaravelJsonPlaceholderConfig::getConfig('randomize_background_color', true);
     }
@@ -86,7 +86,7 @@ class LaravelJsonPlaceholderResourceService
     /**
      * Add background class to classes.
      */
-    public static function addBackgroundClassToClasses(array $classes)
+    public static function addBackgroundClassToClasses(array $classes): array
     {
         if (static::shouldDisplayRandomBackgroundColor()) {
             return array_merge(

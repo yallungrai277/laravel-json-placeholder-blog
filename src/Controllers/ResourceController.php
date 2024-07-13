@@ -2,8 +2,9 @@
 
 namespace JsonRai277\LaravelJsonPlaceholder\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\View\View;
 use JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderResourceService;
 
 class ResourceController extends Controller
@@ -21,7 +22,7 @@ class ResourceController extends Controller
     /**
      * The landing page.
      */
-    public function landing()
+    public function landing(): View
     {
         $resources = LaravelJsonPlaceholderResourceService::getBindedResources();
 
@@ -33,7 +34,7 @@ class ResourceController extends Controller
     /**
      * Get the index resource.
      */
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $resource = $this->getResourceFromUri($request->getRequestUri());
 
@@ -58,7 +59,7 @@ class ResourceController extends Controller
     /**
      * Show a resource.
      */
-    public function show(Request $request, int $id)
+    public function show(Request $request, int $id): View
     {
         $resource = $this->getResourceFromUri($request->getRequestUri());
 

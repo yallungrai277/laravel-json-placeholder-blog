@@ -47,9 +47,9 @@ class LaravelJsonPlaceholderServiceProvider extends ServiceProvider
     /**
      * Register container bindings.
      */
-    public function registerBindings()
+    public function registerBindings(): void
     {
-        $this->app->singleton('JsonPlaceHolder', fn () => new JsonPlaceHolder);
+        $this->app->singleton('JsonPlaceHolder', fn () => new JsonPlaceHolder());
         $this->app->bind(LaravelJsonPlaceholderResourceService::RESOURCE_BIND_KEY, fn () => LaravelJsonPlaceholderConfig::getConfig('resources', []));
 
         $templateEngine = LaravelJsonPlaceholderConfig::getConfig('template_engine', 'blade');
