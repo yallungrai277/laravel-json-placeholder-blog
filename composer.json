@@ -59,7 +59,7 @@
         ],
         "test": "vendor/bin/phpunit",
         "phpstan": "vendor/bin/phpstan analyse src tests",
-        "cs-fix": "vendor/bin/php-cs-fixer fix src",
-        "cs-fix-test": "vendor/bin/php-cs-fixer fix tests"
+        "cs-fix": "vendor/bin/php-cs-fixer fix src && vendor/bin/php-cs-fixer fix tests",
+        "cs-fix-test": "vendor/bin/php-cs-fixer fix --dry-run --diff src && vendor/bin/php-cs-fixer fix --dry-run --diff tests"
     }
 }

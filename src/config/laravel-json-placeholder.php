@@ -23,6 +23,11 @@ return [
     'randomize_background_color' => true,
 
     /**
+     * The landing page uri.
+     */
+    'landing_page_uri' => '/resources',
+
+    /**
      * Resources settings.
      */
     'resources' => [

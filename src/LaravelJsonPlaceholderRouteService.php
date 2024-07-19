@@ -13,7 +13,7 @@ class LaravelJsonPlaceholderRouteService
     public static function registerRoutes(): void
     {
         // Register resource landing page.
-        Route::get('/resources', [ResourceController::class, 'landing'])->name('resource.landing');
+        Route::get(trim(LaravelJsonPlaceholderConfig::getConfig('landing_page_uri'), '/'), [ResourceController::class, 'landing'])->name('resource.landing');
         // Register individual resources index and show pages.
         collect(LaravelJsonPlaceholderResourceService::getBindedResources())->each(function ($settings, $resource) {
             $path = trim($settings['uri'], " \/");
