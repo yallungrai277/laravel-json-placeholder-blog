@@ -24,7 +24,7 @@ class JsonPlaceHolder
      */
     public function getResource(string $path): array
     {
-        $response =  Http::get($this->baseUrl . $path);
+        $response = Http::get($this->baseUrl . $path);
 
         try {
             $response->throwIf($response->failed());

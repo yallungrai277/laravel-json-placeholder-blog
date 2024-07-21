@@ -25,7 +25,7 @@ return [
     /**
      * The landing page uri.
      */
-    'landing_page_uri' => '/resources',
+    'landing_page_uri' => 'resources',
 
     /**
      * Resources settings.

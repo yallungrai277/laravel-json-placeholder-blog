@@ -42,5 +42,5 @@ JsonRai277\LaravelJsonPlaceholder\LaravelJsonPlaceholderConfig::setConfig('pagin
 You can run tests with:
 
 ```bash
-
+vendor/bin/phpunit
 ```

@@ -2,8 +2,8 @@
     {
         "userId": 1,
         "id": 1,
-        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+        "title": "This is the first post title",
+        "body": "This is the first post body"
     },
     {
         "userId": 1,
@@ -56,8 +56,8 @@
     {
         "userId": 1,
         "id": 10,
-        "title": "optio molestias id quia eum",
-        "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
+        "title": "This is the tenth post title",
+        "body": "This is the tenth post body"
     },
     {
         "userId": 2,

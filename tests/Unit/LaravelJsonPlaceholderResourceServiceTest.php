@@ -24,7 +24,7 @@ class LaravelJsonPlaceholderResourceServiceTest extends TestCase
 
     public function test_it_can_paginate_items()
     {
-        $items = json_decode(file_get_contents(__DIR__ . '/../Mocks/posts.json'), true);
+        $items = json_decode(file_get_contents(__DIR__ . '/../Fixtures/posts.json'), true);
         $paginatedItems = LaravelJsonPlaceholderResourceService::paginateItems($items, '/test')->toArray();
 
         $this->assertCount(10, $paginatedItems['data']);
